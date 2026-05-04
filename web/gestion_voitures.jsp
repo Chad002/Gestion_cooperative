@@ -71,8 +71,8 @@
                             <td><%= v.getPlaces() %></td>
                             <td><%= (int) v.getFrais() %></td>
                             <td>
-                                <a href="modifier_voiture.jsp?id=<%= v.getImmatriculation() %>" class="btn-edit">Modifier</a>
-                                <a href="VoitureServlet?action=delete&id=<%= v.getImmatriculation() %>" 
+                                <a href="modifier_voiture.jsp?id=<%= java.net.URLEncoder.encode(v.getImmatriculation(), "UTF-8") %>" class="btn-edit">Modifier</a>
+                                <a href="VoitureServlet?action=delete&id=<%= java.net.URLEncoder.encode(v.getImmatriculation(), "UTF-8") %>" 
                                    class="btn-delete" onclick="return confirm('Supprimer ?');">Supprimer</a>
                             </td>
                         </tr>
