@@ -61,6 +61,7 @@
         <a href="ClientServlet?action=list" class="nav-btn">👥 Gestion Clients</a>
         <a href="PlaceServlet?action=list" class="nav-btn">🪑 Gestion Places</a>
         <a href="ReservationServlet?action=list" class="nav-btn">📅 Réservations</a>
+        <a href="PdfServlet" class="nav-btn" style="background-color: #3498db;">📄 Générer PDF</a>
     </div>
 
     <div class="main-content">
