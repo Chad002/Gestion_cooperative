@@ -203,4 +203,28 @@ public class ReservationDAO {
             return false;
         }
     }
+    
+    
+        // Compte les réservations effectuées aujourd'hui
+    public int compterReservationsJour() {
+        String sql = "SELECT COUNT(*) FROM RESERVER WHERE date_reserv::date = CURRENT_DATE";
+        try (Connection con = Connexion.getConn();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) return rs.getInt(1);
+        } catch (SQLException e) { e.printStackTrace(); }
+        return 0;
+    }
+
+    // Somme de toutes les avances payées
+    public long calculerRecettesTotales() {
+        String sql = "SELECT SUM(montant_avance) FROM RESERVER";
+        try (Connection con = Connexion.getConn();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) return rs.getLong(1);
+        } catch (SQLException e) { e.printStackTrace(); }
+        return 0;
+    }
+    
 }
